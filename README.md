@@ -16,3 +16,36 @@ Code Review:
     - in notify method we should put curly brace on new line
     - in the same method we need to remove empty spaces from the method calls
     - also getEmailAddress method call in notify is missing argument
+
+How to run the application:
+
+ 1. clone this repo
+ 2. cd to the project
+ 3. composer install
+ 4. update mysql settings
+ 5. run updated quotation.sql
+ 6. I used symfony build in server ``php bin/console server:run``
+ 
+How to make an api call
+   - I used postman so this my vary
+   - open postman, enter http://127.0.0.1:8000/api/get_premium
+   - send a post request 
+   - send payload for example 
+   ``
+   {
+       "age": 20,
+       "postcode": "PE3 8AF",
+        "regNo": "PJ63 LXR"
+    }
+ ``
+ - you should receive quote json back
+ 
+ App talks to simple firebase api that has 3 car registration assigned to abi code
+all the rest is rated at 1
+``
+{
+  "KJ68JXR" : 52123803,
+  "PJ63LXR" : 22529902,
+  "YN63DJD" : 46545255
+}
+``
