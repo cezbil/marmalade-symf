@@ -41,9 +41,15 @@ class PremiumController extends Controller
     {
         $data = json_decode($content, true);
         $data['age'] = isset($data['age']) && $data['age'] !== '' ? $data['age'] : '';
-        $data['full_postcode'] = isset($data['postcode']) && $data['postcode'] !== '' ? $this->trimInputs($data['postcode']) : '';
-        $data['postcode'] = isset($data['postcode']) && $data['postcode'] !== '' ? $this->getFirstPart(strtoupper($data['postcode'])) : '';
-        $data['regNo'] = isset($data['regNo']) && $data['regNo'] !== '' ? strtoupper($this->trimInputs($data['regNo'])) : '';
+        $data['full_postcode'] = isset($data['postcode']) && $data['postcode'] !== '' ? $this->trimInputs(
+            $data['postcode']
+        ) : '';
+        $data['postcode'] = isset($data['postcode']) && $data['postcode'] !== '' ? $this->getFirstPart(
+            strtoupper($data['postcode'])
+        ) : '';
+        $data['regNo'] = isset($data['regNo']) && $data['regNo'] !== '' ? strtoupper(
+            $this->trimInputs($data['regNo'])
+        ) : '';
 
         return $data;
     }
@@ -84,6 +90,7 @@ class PremiumController extends Controller
             return preg_replace('/^([A-Z]([A-Z]?\d(\d|[A-Z])?|\d[A-Z]?))\s*?(\d[A-Z][A-Z])$/i', '$1', $postcode);
         }
     }
+
     private function calculatePremium($basePremium, $ageRating, $postcodeRating, $abiRating)
     {
         return $basePremium * $ageRating * $postcodeRating * $abiRating;

@@ -4,6 +4,3 @@ index:
 api:
     path: /api/get_premium
     controller: App\Controller\Premium\PremiumController::getPremium
-mockApi:
-    path: /mock_api/get_abi
-    controller: App\Controller\MockApi\MockApiController::getAbi
