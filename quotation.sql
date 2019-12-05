@@ -92,6 +92,6 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- ----------------------------
 --  I had to run some sql, please see below
 -- ----------------------------
-SET GLOBAL sql_mode=''
+SET GLOBAL sql_mode='';
 
 alter table quote modify id int auto_increment;
